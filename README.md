@@ -36,8 +36,8 @@ Android at **Just Eat Takeaway**. Occasional meme dev blogs at [costafotiadis.co
 
 ### 📬 Find me
 
-<p>
-  <a href="https://www.costafotiadis.com"><img src="https://img.shields.io/badge/Blog-costafotiadis.com-orange?style=flat-square&logo=rss"/></a>
-  <a href="https://x.com/markasduplicate"><img src="https://img.shields.io/badge/X-@markasduplicate-black?style=flat-square&logo=x"/></a>
-  <a href="mailto:con.fotiadis@gmail.com"><img src="https://img.shields.io/badge/Email-con.fotiadis@gmail.com-red?style=flat-square&logo=gmail"/></a>
+<p align="center">
+  <a href="https://www.costafotiadis.com"><img src="https://img.shields.io/badge/Blog-%23FF6B35?style=for-the-badge&logo=rss&logoColor=white"/></a>
+  <a href="https://x.com/markasduplicate"><img src="https://img.shields.io/badge/X-%23000000?style=for-the-badge&logo=x&logoColor=white"/></a>
+  <a href="mailto:con.fotiadis@gmail.com"><img src="https://img.shields.io/badge/Email-%23EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 </p>
