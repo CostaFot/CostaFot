@@ -1,7 +1,7 @@
 <!-- Header typing animation -->
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=3DDC84&center=true&vCenter=true&width=500&lines=Android+Engineer+%40+Just+Eat+Takeaway;Kotlin+enjoyer+%F0%9F%8D%95" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=3DDC84&center=true&vCenter=true&width=500&lines=Android+Engineer+%40+Just+Eat+Takeaway;you+expected+something+cool+here" alt="Typing SVG" />
   </a>
 </p>
 
