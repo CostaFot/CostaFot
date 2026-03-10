@@ -1,12 +1,3 @@
-<!-- Header typing animation -->
-<p align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=3DDC84&center=true&vCenter=true&width=500&lines=Android+Engineer+%40+Just+Eat+Takeaway;you+expected+something+cool+here" alt="Typing SVG" />
-  </a>
-</p>
-
----
-
 ### Hey, I'm Costa
 
 Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](https://www.costafotiadis.com/).
