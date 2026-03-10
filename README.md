@@ -16,9 +16,11 @@ Android at **Just Eat Takeaway**. Occasional meme dev blogs at [costafotiadis.co
 ### 📝 Latest posts
 
 <!-- BLOG-POST-LIST:START -->
-- [ViewModel is deprecated*](https://www.costafotiadis.com/viewmodel-is-deprecated)
-- [Live Updates and Progress notifications for Android 16 at JET](https://www.costafotiadis.com/live-updates-and-progress-notifications-for-android-16-at-jet)
-- [Extending detekt for Android at JET](https://www.costafotiadis.com/extending-detekt-for-android-at-jet)
+- [ViewModel is deprecated*](https://www.costafotiadis.com/post/viewmodel-is-deprecated)
+- [Live Updates and Progress notifications for Android 16 at JET](https://www.costafotiadis.com/post/live-updates-and-progress-notifications-for-android-16-at-jet)
+- [Extending detekt for Android at JET](https://www.costafotiadis.com/post/extending-detekt-for-android-at-jet)
+- [Injecting Composables with Dagger without losing it](https://www.costafotiadis.com/post/injecting-composables-with-dagger-without-losing-it)
+- [Going edge-to-edge with Compose without losing it](https://www.costafotiadis.com/post/going-edge-to-edge-with-compose-without-losing-it)
 <!-- BLOG-POST-LIST:END -->
 
 ---
