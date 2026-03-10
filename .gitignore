@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs & editors
+.idea/
+.vscode/
+*.iml
+*.suo
+*.user
+*.swp
+*~
+
+# Logs & temp
+*.log
+*.tmp
+*.cache
+
+# Node (if ever used)
+node_modules/
+npm-debug.log*
