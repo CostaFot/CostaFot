@@ -40,7 +40,7 @@ Android at **Just Eat Takeaway**. Occasional meme dev blogs at [costafotiadis.co
 
 ---
 
-### 📬 Find me
+### 📬 Stalk me
 
 <p align="center">
   <a href="https://www.costafotiadis.com"><img src="https://img.shields.io/badge/Blog-%23FF6B35?style=for-the-badge&logo=rss&logoColor=white"/></a>
