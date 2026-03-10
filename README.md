@@ -21,8 +21,6 @@ Android at **Just Eat Takeaway**. Occasional meme dev blogs at [costafotiadis.co
 - [Extending detekt for Android at JET](https://www.costafotiadis.com/extending-detekt-for-android-at-jet)
 <!-- BLOG-POST-LIST:END -->
 
-> Auto-updated via GitHub Actions + RSS feed. See [blog-post-workflow](https://github.com/gautamkrishnar/blog-post-workflow).
-
 ---
 
 ### 📊 GitHub Stats
