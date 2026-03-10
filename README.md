@@ -25,11 +25,16 @@ Android at **Just Eat Takeaway**. Occasional meme dev blogs at [costafotiadis.co
 
 ---
 
-### 📊 GitHub Stats
+### 🛠️ Stack
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=CostaFot&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="150"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CostaFot&layout=compact&theme=tokyonight&hide_border=true&langs_count=5" height="150"/>
+  <img src="https://skillicons.dev/icons?i=kotlin,androidstudio,gradle,git,firebase&theme=dark" />
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Jetpack%20Compose-%233DDC84?style=for-the-badge&logo=jetpackcompose&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Hilt-%232196F3?style=for-the-badge&logo=android&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Coroutines-%237F52FF?style=for-the-badge&logo=kotlin&logoColor=white"/>
 </p>
 
 ---
