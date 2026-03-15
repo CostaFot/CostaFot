@@ -20,3 +20,6 @@ desktop.ini
 # Node (if ever used)
 node_modules/
 npm-debug.log*
+
+# Claude Code
+.claude/settings.local.json
