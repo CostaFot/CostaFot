@@ -7,11 +7,11 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 ### 📝 Latest posts
 
 <!-- BLOG-POST-LIST:START -->
-- [Things](https://www.costafotiadis.com/post/things)
-- [ViewModel is deprecated*](https://www.costafotiadis.com/post/viewmodel-is-deprecated)
-- [Live Updates and Progress notifications for Android 16 at JET](https://www.costafotiadis.com/post/live-updates-and-progress-notifications-for-android-16-at-jet)
-- [Extending detekt for Android at JET](https://www.costafotiadis.com/post/extending-detekt-for-android-at-jet)
-- [Injecting Composables with Dagger without losing it](https://www.costafotiadis.com/post/injecting-composables-with-dagger-without-losing-it)
+- [Using a GitHub file as a database cause why not](https://www.costafotiadis.com/using-a-github-file-as-a-database-cause-why-not/)
+- [Things](https://www.costafotiadis.com/things/)
+- [ViewModel is deprecated*](https://www.costafotiadis.com/viewmodel-is-deprecated/)
+- [Live Updates and Progress notifications for Android 16 at JET](https://www.costafotiadis.com/live-updates-and-progress-notifications-for-android-16-at-jet/)
+- [At the Mountains of Madness with Jetpack Compose](https://www.costafotiadis.com/at-the-mountains-of-madness-with-jetpack-compose/)
 <!-- BLOG-POST-LIST:END -->
 
 ---
