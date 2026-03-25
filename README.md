@@ -7,11 +7,11 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 ### 📝 Latest posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Frame mogged into building a Chrome extension](https://www.costafotiadis.com/frame-mogged-into-building-a-chrome-extension/)
 - [Using a GitHub file as a database cause why not](https://www.costafotiadis.com/using-a-github-file-as-a-database-cause-why-not/)
 - [Things](https://www.costafotiadis.com/things/)
 - [ViewModel is deprecated*](https://www.costafotiadis.com/viewmodel-is-deprecated/)
 - [Live Updates and Progress notifications for Android 16 at JET](https://www.costafotiadis.com/live-updates-and-progress-notifications-for-android-16-at-jet/)
-- [At the Mountains of Madness with Jetpack Compose](https://www.costafotiadis.com/at-the-mountains-of-madness-with-jetpack-compose/)
 <!-- BLOG-POST-LIST:END -->
 
 ---
