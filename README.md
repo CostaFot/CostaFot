@@ -23,9 +23,6 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Jetpack%20Compose-%233DDC84?style=for-the-badge&logo=jetpackcompose&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Hilt-%232196F3?style=for-the-badge&logo=android&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Coroutines-%237F52FF?style=for-the-badge&logo=kotlin&logoColor=white"/>
   <img src="https://img.shields.io/badge/Beer-%23FCC624?style=for-the-badge&logo=homebrew&logoColor=black"/>
 </p>
 
