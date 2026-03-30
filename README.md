@@ -7,7 +7,7 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 ### 📝 Latest posts
 
 <!-- BLOG-POST-LIST:START -->
-- [Mogged into building a Chrome extension](https://www.costafotiadis.com/mogged-into-building-a-chrome-extension/)
+- [Mogged into building a Chrome extension &lpar;Replacing &#39;Search with Google&#39; with Claude&rpar;](https://www.costafotiadis.com/mogged-into-building-a-chrome-extension/)
 - [Using a GitHub file as a database cause why not](https://www.costafotiadis.com/using-a-github-file-as-a-database-cause-why-not/)
 - [Things](https://www.costafotiadis.com/things/)
 - [ViewModel is deprecated*](https://www.costafotiadis.com/viewmodel-is-deprecated/)
