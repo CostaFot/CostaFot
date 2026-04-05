@@ -36,6 +36,24 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 
 ---
 
+### 📊 Visuals
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CostaFot&layout=donut&langs_count=4&theme=github_dark&title_color=58a6ff&hide_border=true&card_width=200" alt="Top Languages by Commit" />
+  &nbsp;&nbsp;&nbsp;
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CostaFot&layout=donut&langs_count=4&theme=github_dark&title_color=58a6ff&hide_border=true&count_private=true&card_width=200" alt="Top Languages by Repo" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=CostaFot&theme=github-dark-blue&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak Stats" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=CostaFot&theme=github-compact&hide_border=true&area=true" alt="Contribution Graph" />
+</p>
+
+---
+
 ### 📬 Stalk me
 
 <p align="center">
