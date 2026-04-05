@@ -39,9 +39,9 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 ### 📊 Visuals
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CostaFot&layout=donut&langs_count=4&theme=github_dark&title_color=58a6ff&hide_border=true&card_width=200" alt="Top Languages by Commit" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=CostaFot&theme=github_dark" alt="Top Languages by Commit" />
   &nbsp;&nbsp;&nbsp;
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=CostaFot&layout=donut&langs_count=4&theme=github_dark&title_color=58a6ff&hide_border=true&count_private=true&card_width=200" alt="Top Languages by Repo" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=CostaFot&theme=github_dark" alt="Top Languages by Repo" />
 </p>
 
 <p align="center">
