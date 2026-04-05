@@ -16,14 +16,14 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 
 ---
 
-### 🛠️ Stack
+### 📬 Stalk me
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=kotlin,androidstudio,gradle&theme=dark" />
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Beer-%23FCC624?style=for-the-badge&logo=homebrew&logoColor=black"/>
+  <a href="https://www.costafotiadis.com"><img src="https://img.shields.io/badge/COSTAFOTIADIS.COM-%23FF6B35?style=for-the-badge&logo=rss&logoColor=white"/></a>
+  <a href="https://x.com/markasduplicate"><img src="https://img.shields.io/badge/X-%23000000?style=for-the-badge&logo=x&logoColor=white"/></a>
+  <a href="https://x.com/markasduplicate"><img src="https://img.shields.io/badge/@MARKASDUPLICATE-%23333333?style=for-the-badge&logoColor=white"/></a>
+  <a href="mailto:con.fotiadis@gmail.com"><img src="https://img.shields.io/badge/EMAIL-%23EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
+  <a href="mailto:con.fotiadis@gmail.com"><img src="https://img.shields.io/badge/CON.FOTIADIS@GMAIL.COM-%237B2FBE?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 </p>
 
 ---
@@ -52,12 +52,3 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=CostaFot&theme=github-compact&hide_border=true&area=true" alt="Contribution Graph" />
 </p>
 
----
-
-### 📬 Stalk me
-
-<p align="center">
-  <a href="https://www.costafotiadis.com"><img src="https://img.shields.io/badge/Blog-%23FF6B35?style=for-the-badge&logo=rss&logoColor=white"/></a>
-  <a href="https://x.com/markasduplicate"><img src="https://img.shields.io/badge/X-%23000000?style=for-the-badge&logo=x&logoColor=white"/></a>
-  <a href="mailto:con.fotiadis@gmail.com"><img src="https://img.shields.io/badge/Email-%23EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
-</p>
