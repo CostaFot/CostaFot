@@ -33,22 +33,3 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/CostaFot/CostaFot/output/github-contribution-grid-snake.svg" />
   <img alt="github-snake" src="https://raw.githubusercontent.com/CostaFot/CostaFot/output/github-contribution-grid-snake.svg" />
 </picture>
-
----
-
-### 📊 Visuals
-
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=CostaFot&theme=github_dark" alt="Top Languages by Commit" />
-  &nbsp;&nbsp;&nbsp;
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=CostaFot&theme=github_dark" alt="Top Languages by Repo" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=CostaFot&theme=github-dark-blue&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak Stats" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=CostaFot&theme=github-compact&hide_border=true&area=true" alt="Contribution Graph" />
-</p>
-
