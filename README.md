@@ -7,11 +7,11 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 ### 📝 Latest posts
 
 <!-- BLOG-POST-LIST:START -->
+- [It looks like you&#39;re trying to: Build an Extension for Command Palette](https://www.costafotiadis.com/it-looks-like-youre-trying-to-build-an-extension-for-command-palette/)
 - [At the Mountains of Madness: Rewriting a 100-Line PowerShell Script as a KMP Desktop App](https://www.costafotiadis.com/at-the-mountains-of-madness-rewriting-a-100-line-powershell-script-as-a-kmp-desktop-app/)
 - [Mogged into building a Chrome extension &lpar;Replacing &#39;Search with Google&#39; with Claude&rpar;](https://www.costafotiadis.com/mogged-into-building-a-chrome-extension/)
 - [Using a GitHub file as a database cause why not](https://www.costafotiadis.com/using-a-github-file-as-a-database-cause-why-not/)
 - [Things](https://www.costafotiadis.com/things/)
-- [ViewModel is deprecated*](https://www.costafotiadis.com/viewmodel-is-deprecated/)
 <!-- BLOG-POST-LIST:END -->
 
 ---
