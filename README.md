@@ -1,5 +1,3 @@
-### Hey, I'm Costa
-
 Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](https://www.costafotiadis.com/).
 
 ---
