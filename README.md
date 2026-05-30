@@ -23,11 +23,3 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
   <a href="mailto:con.fotiadis@gmail.com"><img src="https://img.shields.io/badge/EMAIL-%23EA4335?style=for-the-badge&logo=gmail&logoColor=white"/></a>
   <a href="mailto:con.fotiadis@gmail.com"><img src="https://img.shields.io/badge/CON.FOTIADIS@GMAIL.COM-%237B2FBE?style=for-the-badge&logo=gmail&logoColor=white"/></a>
 </p>
-
----
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/CostaFot/CostaFot/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/CostaFot/CostaFot/output/github-contribution-grid-snake.svg" />
-  <img alt="github-snake" src="https://raw.githubusercontent.com/CostaFot/CostaFot/output/github-contribution-grid-snake.svg" />
-</picture>
