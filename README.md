@@ -14,7 +14,7 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 
 ---
 
-### 📬 Stalk me
+### 😱 Stalk me
 
 <p align="center">
   <a href="https://www.costafotiadis.com"><img src="https://img.shields.io/badge/COSTAFOTIADIS.COM-%23FF6B35?style=for-the-badge&logo=rss&logoColor=white"/></a>
