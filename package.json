@@ -1,0 +1,11 @@
+{
+  "name": "costafot-profile",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "update-projects": "node scripts/update-projects.mjs"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
