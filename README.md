@@ -14,6 +14,15 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 
 ---
 
+### 😱 Stalk me
+
+<p align="center">
+  <a href="https://www.costafotiadis.com"><img src="https://raw.githubusercontent.com/CostaFot/CostaFot/main/assets/costafotiadis-com.svg" alt="costafotiadis.com" height="28"></a>
+  <a href="https://x.com/markasduplicate"><img src="https://img.shields.io/badge/@MARKASDUPLICATE-000000?style=for-the-badge&logo=x&logoColor=white" alt="@markasduplicate on X" height="28"></a>
+</p>
+
+---
+
 ### 🧰 Projects
 
 <!-- PROJECTS:START -->
@@ -48,14 +57,6 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 <!-- PROJECTS:END -->
 
 ---
-
-### 😱 Stalk me
-
-<p align="center">
-  <a href="https://www.costafotiadis.com"><img src="https://img.shields.io/badge/COSTAFOTIADIS.COM-%23FF6B35?style=for-the-badge&logo=rss&logoColor=white"/></a>
-  <a href="https://x.com/markasduplicate"><img src="https://img.shields.io/badge/X-%23000000?style=for-the-badge&logo=x&logoColor=white"/></a>
-  <a href="https://x.com/markasduplicate"><img src="https://img.shields.io/badge/@MARKASDUPLICATE-%23333333?style=for-the-badge&logoColor=white"/></a>
-</p>
 
 <p align="center">
   <img src="https://hit-counter-production.up.railway.app/counter.svg?key=github-profile&style=led" alt="profile visitors" height="40">
