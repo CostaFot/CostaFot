@@ -56,3 +56,7 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
   <a href="https://x.com/markasduplicate"><img src="https://img.shields.io/badge/X-%23000000?style=for-the-badge&logo=x&logoColor=white"/></a>
   <a href="https://x.com/markasduplicate"><img src="https://img.shields.io/badge/@MARKASDUPLICATE-%23333333?style=for-the-badge&logoColor=white"/></a>
 </p>
+
+<p align="center">
+  <img src="https://hit-counter-production.up.railway.app/counter.svg?key=github-profile&style=led" alt="profile visitors" height="40">
+</p>
