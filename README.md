@@ -2,7 +2,7 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 
 ---
 
-### 📝 Latest posts
+### Latest posts
 
 <!-- BLOG-POST-LIST:START -->
 - [At the mountains of madness: Interviews](https://www.costafotiadis.com/at-the-mountains-of-madness-interviews/)
@@ -14,7 +14,7 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 
 ---
 
-### 😱 Stalk me
+### Stalk me
 
 <p align="center">
   <a href="https://www.costafotiadis.com"><img src="https://raw.githubusercontent.com/CostaFot/CostaFot/main/assets/costafotiadis-com.svg" alt="costafotiadis.com" height="28"></a>
@@ -23,7 +23,7 @@ Android at **Just Eat Takeaway**. Occasional dev blogs at [costafotiadis.com](ht
 
 ---
 
-### 🧰 Projects
+### Projects
 
 <!-- PROJECTS:START -->
 <h4>Omarchy <sub>plugins</sub></h4>
