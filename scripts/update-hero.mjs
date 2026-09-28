@@ -98,7 +98,6 @@ async function fetchGraveyard() {
   return {
     kills: rows.reduce((sum, r) => sum + (r.kills ?? 0), 0),
     slaps: rows.reduce((sum, r) => sum + (r.slaps ?? 0), 0),
-    handles: rows.length,
   };
 }
 
@@ -384,7 +383,7 @@ function render({ posts, installs, graveyard, quote, now }) {
   const total = installs.reduce((n, a) => n + a.now, 0);
   const week = installs.reduce((n, a) => n + a.week, 0);
   push([["store: ", C.mute], [`${fmt(total)} installs across ${installs.length} extensions, `, C.fg2], [`+${fmt(week)} this week`, C.green]]);
-  push([["graveyard: ", C.mute], [`${plural(graveyard.slaps, "slap")} and ${plural(graveyard.kills, "kill")} from ${plural(graveyard.handles, "handle")}`, C.fg2]]);
+  push([["graveyard: ", C.mute], [`${plural(graveyard.slaps, "slap")} and ${plural(graveyard.kills, "kill")}`, C.fg2]]);
   push([["clippy.service: Main process exited, code=killed, status=SIGSLAP", C.red]]);
   push([["clippy.service: Failed with result 'signal'.", C.yellow]]);
   push([[`clippy.service: Scheduled restart job, restart counter is at ${fmt(graveyard.kills)}.`, C.dim]]);
