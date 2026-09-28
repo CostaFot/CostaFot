@@ -1,0 +1,40 @@
+name: Hero
+
+# Redraws the desktop at the top of the README with fresh numbers and pushes
+# it, alone, to the orphan `output` branch, so main's history stays clean.
+
+on:
+  schedule:
+    - cron: '7 */3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: [scripts/update-hero.mjs, assets/hero/**, .github/workflows/hero.yml]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hero
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/update-hero.mjs out/hero.svg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish to the output branch
+        working-directory: out
+        run: |
+          git init -q -b output
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hero.svg
+          git commit -q -m "Redraw the hero"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" output
