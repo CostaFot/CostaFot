@@ -87,7 +87,6 @@ async function fetchPosts() {
   const items = [...xml.matchAll(/<item>([\s\S]*?)<\/item>/g)].map(([, item]) => ({
     title: decode(item.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? "").trim(),
     date: new Date(item.match(/<pubDate>([\s\S]*?)<\/pubDate>/)?.[1]),
-    path: new URL(decode(item.match(/<link>([\s\S]*?)<\/link>/)?.[1] ?? "/"), SITE).pathname.replace(/\/$/, ""),
   }));
   if (!items.length) fail("The RSS feed has no items");
   return items.sort((a, b) => b.date - a.date);
@@ -141,12 +140,6 @@ async function fetchPushes() {
     if (!(latest.get(e.repo.name) > at)) latest.set(e.repo.name, at);
   }
   return [...latest].sort((a, b) => b[1] - a[1]).slice(0, 2).map(([repo, at]) => ({ repo: repo.split("/")[1], at }));
-}
-
-// Umami's all-time pageviews per path, through the hit counter.
-async function fetchViews() {
-  const rows = await (await get("https://hit-counter-production.up.railway.app/views?limit=1000")).json();
-  return new Map(rows.map((r) => [r.path.replace(/\/$/, ""), r.views]));
 }
 
 async function fetchQuote(day) {
@@ -283,7 +276,7 @@ function logo(x, y, width) {
   return { svg: `<g fill="url(#logo)">${rects.join("")}</g>`, height: LOGO.length * ch };
 }
 
-function render({ gh, posts, installs, graveyard, pushes, views, quote, now }) {
+function render({ gh, posts, installs, graveyard, pushes, quote, now }) {
   const css = [];
   const clock = new Intl.DateTimeFormat("en-US", {
     timeZone: TZ, weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
@@ -454,8 +447,6 @@ function render({ gh, posts, installs, graveyard, pushes, views, quote, now }) {
   for (const post of posts.slice(0, 2)) {
     push([["blog: ", C.mute], [`"${post.title}"`, C.cyan], [` ${ago(post.date, now)}`, C.dim]]);
   }
-  const read = posts.map((p) => ({ ...p, views: views.get(p.path) ?? 0 })).sort((a, b) => b.views - a.views)[0];
-  if (read?.views) push([["umami: ", C.mute], ["most read ", C.fg2], [`"${read.title}"`, C.cyan], [`, ${plural(read.views, "view")}`, C.fg2]]);
   for (const p of pushes) push([["git: ", C.mute], ["pushed to ", C.fg2], [p.repo, C.magenta], [` ${ago(p.at, now)}`, C.dim]]);
   const total = installs.reduce((n, a) => n + a.now, 0);
   const week = installs.reduce((n, a) => n + a.week, 0);
@@ -606,11 +597,11 @@ ${bubble}
 // ---------------------------------------------------------------- main
 
 const now = new Date();
-const [gh, posts, installs, graveyard, pushes, views, quote] = await Promise.all([
-  fetchGithub(), fetchPosts(), fetchInstalls(), fetchGraveyard(), fetchPushes(), fetchViews(),
+const [gh, posts, installs, graveyard, pushes, quote] = await Promise.all([
+  fetchGithub(), fetchPosts(), fetchInstalls(), fetchGraveyard(), fetchPushes(),
   fetchQuote(Math.floor(now / 86400000)),
 ]);
-const svg = render({ gh, posts, installs, graveyard, pushes, views, quote, now });
+const svg = render({ gh, posts, installs, graveyard, pushes, quote, now });
 mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(OUT, svg);
 console.log(`${OUT}: ${(svg.length / 1024).toFixed(0)} KB`);
