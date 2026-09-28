@@ -27,8 +27,6 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/update-hero.mjs out/hero.svg
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish to the output branch
         working-directory: out
         run: |

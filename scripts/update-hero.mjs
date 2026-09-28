@@ -46,31 +46,6 @@ async function get(url, headers = {}) {
   return response;
 }
 
-const github = (path) =>
-  get(`https://api.github.com${path}`, {
-    accept: "application/vnd.github+json",
-    ...(process.env.GITHUB_TOKEN && { authorization: `Bearer ${process.env.GITHUB_TOKEN}` }),
-  }).then((r) => r.json());
-
-async function fetchGithub() {
-  const user = await github(`/users/${USER}`);
-  const repos = [];
-  for (let page = 1; ; page++) {
-    const batch = await github(`/users/${USER}/repos?type=owner&per_page=100&page=${page}`);
-    repos.push(...batch.filter((r) => !r.fork));
-    if (batch.length < 100) break;
-  }
-  const langs = new Map();
-  for (const r of repos) if (r.language) langs.set(r.language, (langs.get(r.language) ?? 0) + 1);
-  return {
-    since: new Date(user.created_at),
-    followers: user.followers,
-    repos: repos.length,
-    stars: repos.reduce((sum, r) => sum + r.stargazers_count, 0),
-    langs: [...langs].sort((a, b) => b[1] - a[1]).map(([name]) => name),
-  };
-}
-
 const decode = (s) =>
   s
     .replace(/^<!\[CDATA\[|\]\]>$/g, "")
@@ -167,14 +142,6 @@ function ago(date, now) {
   return `${Math.round(days / 365.25)} years ago`;
 }
 
-function uptime(since, now) {
-  let months = (now.getUTCFullYear() - since.getUTCFullYear()) * 12 + now.getUTCMonth() - since.getUTCMonth();
-  if (now.getUTCDate() < since.getUTCDate()) months--;
-  const y = Math.floor(months / 12);
-  const m = months % 12;
-  return [y && plural(y, "year"), m && plural(m, "month")].filter(Boolean).join(", ") || "fresh";
-}
-
 // A run of coloured spans on one line: [[text, colour], ...].
 const spans = (parts) =>
   parts.map(([text, color, extra = ""]) => `<tspan fill="${color}"${extra}>${esc(text)}</tspan>`).join("");
@@ -261,7 +228,7 @@ function logo(x, y, width) {
   return { svg: `<g fill="url(#logo)">${rects.join("")}</g>`, height: LOGO.length * ch };
 }
 
-function render({ gh, posts, installs, graveyard, quote, now }) {
+function render({ posts, installs, graveyard, quote, now }) {
   const css = [];
   const clock = new Intl.DateTimeFormat("en-US", {
     timeZone: TZ, weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
@@ -353,21 +320,16 @@ function render({ gh, posts, installs, graveyard, quote, now }) {
   const LOGO_W = 92;
   const mark = logo(FF.x + PAD + 2, ffTop + 16, LOGO_W);
   const infoX = FF.x + PAD + 2 + LOGO_W + 18;
-  const infoCols = Math.floor((FF.x + FF.w - PAD - infoX) / CW);
-  // As many languages as fit after "Languages: ".
-  let langs = gh.langs[0] ?? "";
-  for (const l of gh.langs.slice(1)) if (`Languages: ${langs}, ${l}`.length <= infoCols) langs += `, ${l}`; else break;
   const info = [
     [[`costa`, C.blue, ` font-weight="700"`], [`@`, C.fg], [`github`, C.blue, ` font-weight="700"`]],
     [[`────────────`, C.line]],
     [[`OS`, C.blue], [`: Omarchy x86_64`, C.fg]],
     [[`Host`, C.blue], [`: Just Eat Takeaway`, C.fg]],
-    [[`Uptime`, C.blue], [`: ${uptime(gh.since, now)}`, C.fg]],
-    [[`Packages`, C.blue], [`: ${gh.repos} (github)`, C.fg]],
-    [[`Shell`, C.blue], [`: ${gh.langs[0]?.toLowerCase() ?? "bash"}`, C.fg]],
-    [[`Languages`, C.blue], [`: ${langs}`, C.fg]],
-    [[`Stars`, C.blue], [`: ${fmt(gh.stars)} `, C.fg], [`★`, C.yellow]],
-    [[`Posts`, C.blue], [`: ${posts.length} on costafotiadis.com`, C.fg]],
+    [[`Memory`, C.blue], [`: Too expensive`, C.fg]],
+    [[`Swap`, C.blue], [`: Kotlin, C#, QML`, C.fg]],
+    [[`Posts`, C.blue], [`: ${posts.length}`, C.fg]],
+    [[`Alcohol`, C.blue], [`: Yes`, C.fg]],
+    [[`Resolution`, C.blue], [`: Won't fix`, C.fg]],
   ];
   const infoSvg = info.map((parts, i) => `<text x="${infoX}" y="${ffTop + 22 + i * LH}">${spans(parts)}</text>`).join("");
   const swatchY = ffTop + 22 + info.length * LH - 4;
@@ -519,7 +481,7 @@ function render({ gh, posts, installs, graveyard, quote, now }) {
   const font = (weight) => readFileSync(join(ASSETS, `font-${weight}.woff2`)).toString("base64");
   const title = `costa@github: an Omarchy desktop with fastfetch and journalctl`;
   const desc =
-    `An Omarchy desktop. Clippy walks the bar and says: "${quote}". cava bounces to the music. fastfetch prints costa@github: Omarchy, Just Eat Takeaway, ${gh.repos} repos, ${gh.stars} stars, ${posts.length} posts. ` +
+    `An Omarchy desktop. Clippy walks the bar and says: "${quote}". cava bounces to the music. fastfetch prints costa@github: OS Omarchy, Host Just Eat Takeaway, Memory too expensive, Swap Kotlin, C#, QML, ${posts.length} posts, Alcohol yes, Resolution won't fix. ` +
     `journalctl prints the latest posts (${posts.slice(0, 2).map((p) => p.title).join("; ")}), ${fmt(total)} installs, ` +
     `and the Graveyard's ${fmt(graveyard.slaps)} slaps and ${fmt(graveyard.kills)} kills.`;
 
@@ -564,11 +526,11 @@ ${bubble}
 // ---------------------------------------------------------------- main
 
 const now = new Date();
-const [gh, posts, installs, graveyard, quote] = await Promise.all([
-  fetchGithub(), fetchPosts(), fetchInstalls(), fetchGraveyard(),
+const [posts, installs, graveyard, quote] = await Promise.all([
+  fetchPosts(), fetchInstalls(), fetchGraveyard(),
   fetchQuote(Math.floor(now / 86400000)),
 ]);
-const svg = render({ gh, posts, installs, graveyard, quote, now });
+const svg = render({ posts, installs, graveyard, quote, now });
 mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(OUT, svg);
 console.log(`${OUT}: ${(svg.length / 1024).toFixed(0)} KB`);
