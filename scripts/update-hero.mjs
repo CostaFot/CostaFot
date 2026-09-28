@@ -1,14 +1,13 @@
 #!/usr/bin/env node
 // Render the profile's hero: an Omarchy desktop drawn as one animated SVG.
 //
-// Every widget is one of the projects. The bar has the workspaces, a
-// Markets-style ticker of the Command Palette extensions' installs, the
+// Every widget is one of the projects. The bar has the workspaces, the
 // Android Dev droid, the tray and a clock stamped with the build time; Clippy
 // walks it and says a line from his book. Under it three tiled windows open:
 // cava (for the Visualizer extension), fastfetch for costa@github, and a
 // journalctl that prints the latest posts, the install count and the
 // Graveyard's toll.
-// Every number is fetched when this runs, so the daily workflow keeps it
+// Every number is fetched when this runs, so the hero workflow keeps it
 // current. The font subset and Clippy's frames are embedded from assets/hero/
 // (see hero-assets.mjs), so the SVG loads nothing else, which it couldn't
 // anyway: GitHub shows it through an <img>.
@@ -26,8 +25,6 @@ const USER = "CostaFot";
 const SITE = "https://www.costafotiadis.com";
 const TZ = "Europe/London";
 const RAW = "https://raw.githubusercontent.com";
-// Ticker symbols for the stats repo's app slugs.
-const SYMBOLS = { adb: "ADB", market: "MKTS", agents: "AGNT", visualizer: "VIZR" };
 
 // Tokyo Night, which the showcase loops use too.
 const C = {
@@ -116,7 +113,7 @@ async function fetchInstalls() {
       rows.forEach((r, i) => { if (r.date <= cutoff) ref = i; });
       const now = totalAt(end);
       const before = totalAt(ref);
-      return { slug: app.slug, name: app.name, now, week: now - before, pct: before ? ((now - before) / before) * 100 : 0 };
+      return { name: app.name, now, week: now - before };
     }),
   );
 }
@@ -304,19 +301,6 @@ function render({ gh, posts, installs, graveyard, pushes, quote, now }) {
     .map((n, i) => `<text x="${22 + i * 20}" y="${barY}" font-size="14" font-weight="${n === 1 ? 700 : 400}" fill="${n === 1 ? C.fg : C.dim}">${n}</text>`)
     .join("");
 
-  const tickerX = 136;
-  const tickerW = 400;
-  const item = (a) => {
-    const up = a.week > 0;
-    const arrow = a.week > 0 ? "▲" : a.week < 0 ? "▼" : "■";
-    const color = a.week > 0 ? C.green : a.week < 0 ? C.red : C.dim;
-    return spans([[`${SYMBOLS[a.slug] ?? a.slug.slice(0, 4).toUpperCase()} `, C.fg2], [`${fmt(a.now)} ${arrow} ${up ? "+" : ""}${a.pct.toFixed(1)}%`, color]]);
-  };
-  const tickerText = installs.map(item).join(`<tspan fill="${C.line}">   ·   </tspan>`) + `<tspan fill="${C.line}">   ·   </tspan>`;
-  const tickerChars = installs.reduce((n, a) => n + `${SYMBOLS[a.slug] ?? "XXXX"} ${fmt(a.now)} ▲ +${a.pct.toFixed(1)}%`.length + 7, 0);
-  const tickerLen = tickerChars * 13 * 0.6;
-  css.push(`.ticker{animation:ticker ${(tickerLen / 28).toFixed(1)}s linear infinite}@keyframes ticker{to{transform:translateX(-${tickerLen.toFixed(1)}px)}}`);
-
   const clockX = W - GAP_OUT;
   const tray = [
     ["\u{F0079}", W - 164], // battery
@@ -486,14 +470,15 @@ function render({ gh, posts, installs, graveyard, pushes, quote, now }) {
     </g>
   </g>`;
 
-  // ---- Clippy: waves by the tray, walks to the left of the ticker, gets
-  // your attention, says his line, and walks back.
+  // ---- Clippy: waves by the tray, walks down the bar to above cava (so his
+  // bubble covers nothing that matters), gets your attention, says his line,
+  // and walks back.
   const sheet = JSON.parse(readFileSync(join(ASSETS, "clippy.json"), "utf8"));
   const png = readFileSync(join(ASSETS, "clippy.png")).toString("base64");
   const cH = 44;
   const cW = (sheet.width / sheet.height) * cH;
-  const A = tickerX + tickerW + 12;
-  const B = tickerX + 20;
+  const A = 548;
+  const B = 156;
   const plan = [];
   let t = 0;
   const rest = (ms) => { plan.push([t, 0]); t += ms; };
@@ -547,8 +532,7 @@ function render({ gh, posts, installs, graveyard, pushes, quote, now }) {
   const font = (weight) => readFileSync(join(ASSETS, `font-${weight}.woff2`)).toString("base64");
   const title = `costa@github: an Omarchy desktop with fastfetch and journalctl`;
   const desc =
-    `An Omarchy desktop. The bar ticks the Command Palette extensions' installs (${installs.map((a) => `${a.name} ${fmt(a.now)}`).join(", ")}) ` +
-    `while Clippy walks it and says: "${quote}". cava bounces to the music. fastfetch prints costa@github: Omarchy, Just Eat Takeaway, ${gh.repos} repos, ${gh.stars} stars, ${posts.length} posts. ` +
+    `An Omarchy desktop. Clippy walks the bar and says: "${quote}". cava bounces to the music. fastfetch prints costa@github: Omarchy, Just Eat Takeaway, ${gh.repos} repos, ${gh.stars} stars, ${posts.length} posts. ` +
     `journalctl prints the latest posts (${posts.slice(0, 2).map((p) => p.title).join("; ")}), the latest pushes (${pushes.map((p) => p.repo).join(", ")}), ${fmt(total)} installs, ` +
     `and the Graveyard's ${fmt(graveyard.slaps)} slaps and ${fmt(graveyard.kills)} kills.`;
 
@@ -561,7 +545,7 @@ function render({ gh, posts, installs, graveyard, pushes, quote, now }) {
 @font-face{font-family:JBM;font-weight:700;src:url(data:font/woff2;base64,${font("bold")}) format("woff2")}
 text{font-family:JBM,"JetBrains Mono",ui-monospace,monospace;font-size:${FS}px;white-space:pre}
 ${css.join("\n")}
-@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important}.cwalk,.cframes,.cbob,.bubble,.ticker,.tw,.shoot,.sheen,.cv{animation:none!important}.cv{transform:scaleY(.5)}.bubble,.shoot,.cmdcur{opacity:0}.cwalk{transform:translateX(${A}px)}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important}.cwalk,.cframes,.cbob,.bubble,.tw,.shoot,.sheen,.cv{animation:none!important}.cv{transform:scaleY(.5)}.bubble,.shoot,.cmdcur{opacity:0}.cwalk{transform:translateX(${A}px)}}
 </style>
 <radialGradient id="glow1" cx="18%" cy="32%" r="60%"><stop offset="0" stop-color="#7156c9"/><stop offset=".55" stop-color="#4a3791" stop-opacity=".6"/><stop offset="1" stop-color="#4a3791" stop-opacity="0"/></radialGradient>
 <radialGradient id="glow2" cx="88%" cy="105%" r="55%"><stop offset="0" stop-color="#e27fb5"/><stop offset=".5" stop-color="#b86fb3" stop-opacity=".55"/><stop offset="1" stop-color="#b86fb3" stop-opacity="0"/></radialGradient>
@@ -569,8 +553,6 @@ ${css.join("\n")}
 <linearGradient id="sheen" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
 <linearGradient id="cava" gradientUnits="userSpaceOnUse" x1="0" y1="${CAVA.y + CAVA.h}" x2="0" y2="${CAVA.y + 8}"><stop offset="0" stop-color="${C.blue}"/><stop offset=".6" stop-color="${C.magenta}"/><stop offset="1" stop-color="${C.red}"/></linearGradient>
 <linearGradient id="trail" x1="0" x2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-<clipPath id="tickerclip"><rect x="${tickerX}" y="0" width="${tickerW}" height="${BAR}"/></clipPath>
-<linearGradient id="tickerfade" x1="0" x2="1"><stop offset="0" stop-color="${C.bar}"/><stop offset=".06" stop-color="${C.bar}" stop-opacity="0"/><stop offset=".94" stop-color="${C.bar}" stop-opacity="0"/><stop offset="1" stop-color="${C.bar}"/></linearGradient>
 </defs>
 <rect width="${W}" height="${H}" fill="#2a2161"/>
 <rect width="${W}" height="${H}" fill="url(#glow1)"/>
@@ -579,8 +561,6 @@ ${css.join("\n")}
 <g class="shoot"><line x1="${W - 150}" y1="${BAR + 14}" x2="${W - 60}" y2="${BAR - 26}" stroke="url(#trail)" stroke-width="1.6" stroke-linecap="round"/></g>
 <rect width="${W}" height="${BAR}" fill="${C.bar}"/>
 ${workspaces}
-<g clip-path="url(#tickerclip)"><g class="ticker"><text x="${tickerX}" y="${barY}" font-size="13">${tickerText}${tickerText}${tickerText}</text></g></g>
-<rect x="${tickerX}" y="0" width="${tickerW}" height="${BAR}" fill="url(#tickerfade)"/>
 <circle class="ping" cx="${droidX}" cy="${BAR / 2}" r="9" fill="none" stroke="${C.droid}" stroke-width="1.5"/>
 <text class="droid" x="${droidX}" y="${barY + 1}" font-size="16" text-anchor="middle" fill="${C.dim}">\u{F17B}</text>
 ${tray}
