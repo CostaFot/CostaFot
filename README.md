@@ -1,4 +1,4 @@
-<a href="https://www.costafotiadis.com/"><img src="https://raw.githubusercontent.com/CostaFot/CostaFot/output/hero.svg" alt="My Omarchy desktop, redrawn every few hours: Clippy walking the bar, cava, fastfetch, and a journalctl of my latest posts, pushes and the Clippy graveyard's body count" width="100%"></a>
+<a href="https://www.costafotiadis.com/"><img src="https://raw.githubusercontent.com/CostaFot/CostaFot/output/hero.svg" alt="My Omarchy desktop, redrawn every few hours: Clippy walking the bar, cava, fastfetch, and a journalctl of my latest posts and the Clippy graveyard's body count" width="100%"></a>
 
 ---
 

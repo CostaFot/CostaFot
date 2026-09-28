@@ -127,18 +127,6 @@ async function fetchGraveyard() {
   };
 }
 
-// The two repos pushed to most recently.
-async function fetchPushes() {
-  const events = await github(`/users/${USER}/events/public?per_page=100`);
-  const latest = new Map();
-  for (const e of events) {
-    if (e.type !== "PushEvent") continue;
-    const at = new Date(e.created_at);
-    if (!(latest.get(e.repo.name) > at)) latest.set(e.repo.name, at);
-  }
-  return [...latest].sort((a, b) => b[1] - a[1]).slice(0, 2).map(([repo, at]) => ({ repo: repo.split("/")[1], at }));
-}
-
 async function fetchQuote(day) {
   const book = await (await get(`${RAW}/${USER}/omarchy-inappropriate-clippy/main/quotes.json`)).json();
   const usable = book.quotes.filter((q) => !q.nsfw && wrap(q.text, BUBBLE_COLS).length <= 3);
@@ -273,7 +261,7 @@ function logo(x, y, width) {
   return { svg: `<g fill="url(#logo)">${rects.join("")}</g>`, height: LOGO.length * ch };
 }
 
-function render({ gh, posts, installs, graveyard, pushes, quote, now }) {
+function render({ gh, posts, installs, graveyard, quote, now }) {
   const css = [];
   const clock = new Intl.DateTimeFormat("en-US", {
     timeZone: TZ, weekday: "short", day: "numeric", month: "short", hour: "2-digit", minute: "2-digit", hourCycle: "h23",
@@ -431,7 +419,6 @@ function render({ gh, posts, installs, graveyard, pushes, quote, now }) {
   for (const post of posts.slice(0, 2)) {
     push([["blog: ", C.mute], [`"${post.title}"`, C.cyan], [` ${ago(post.date, now)}`, C.dim]]);
   }
-  for (const p of pushes) push([["git: ", C.mute], ["pushed to ", C.fg2], [p.repo, C.magenta], [` ${ago(p.at, now)}`, C.dim]]);
   const total = installs.reduce((n, a) => n + a.now, 0);
   const week = installs.reduce((n, a) => n + a.week, 0);
   push([["store: ", C.mute], [`${fmt(total)} installs across ${installs.length} extensions, `, C.fg2], [`+${fmt(week)} this week`, C.green]]);
@@ -533,7 +520,7 @@ function render({ gh, posts, installs, graveyard, pushes, quote, now }) {
   const title = `costa@github: an Omarchy desktop with fastfetch and journalctl`;
   const desc =
     `An Omarchy desktop. Clippy walks the bar and says: "${quote}". cava bounces to the music. fastfetch prints costa@github: Omarchy, Just Eat Takeaway, ${gh.repos} repos, ${gh.stars} stars, ${posts.length} posts. ` +
-    `journalctl prints the latest posts (${posts.slice(0, 2).map((p) => p.title).join("; ")}), the latest pushes (${pushes.map((p) => p.repo).join(", ")}), ${fmt(total)} installs, ` +
+    `journalctl prints the latest posts (${posts.slice(0, 2).map((p) => p.title).join("; ")}), ${fmt(total)} installs, ` +
     `and the Graveyard's ${fmt(graveyard.slaps)} slaps and ${fmt(graveyard.kills)} kills.`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-labelledby="t d">
@@ -577,11 +564,11 @@ ${bubble}
 // ---------------------------------------------------------------- main
 
 const now = new Date();
-const [gh, posts, installs, graveyard, pushes, quote] = await Promise.all([
-  fetchGithub(), fetchPosts(), fetchInstalls(), fetchGraveyard(), fetchPushes(),
+const [gh, posts, installs, graveyard, quote] = await Promise.all([
+  fetchGithub(), fetchPosts(), fetchInstalls(), fetchGraveyard(),
   fetchQuote(Math.floor(now / 86400000)),
 ]);
-const svg = render({ gh, posts, installs, graveyard, pushes, quote, now });
+const svg = render({ gh, posts, installs, graveyard, quote, now });
 mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(OUT, svg);
 console.log(`${OUT}: ${(svg.length / 1024).toFixed(0)} KB`);
