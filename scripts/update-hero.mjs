@@ -24,7 +24,7 @@ const ASSETS = join(ROOT, "assets", "hero");
 const OUT = process.argv[2] ?? join(ROOT, "dist", "hero.svg");
 const USER = "CostaFot";
 const SITE = "https://www.costafotiadis.com";
-const TZ = "Europe/Athens";
+const TZ = "Europe/London";
 const RAW = "https://raw.githubusercontent.com";
 // Ticker symbols for the stats repo's app slugs.
 const SYMBOLS = { adb: "ADB", market: "MKTS", agents: "AGNT", visualizer: "VIZR" };
